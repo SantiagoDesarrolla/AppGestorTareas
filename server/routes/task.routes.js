@@ -3,17 +3,21 @@ import {
   getTasks,
   createTask,
   updateTask,
-  deleteTask,
+  deleteTask
 } from '../controllers/task.controller.js';
-import { verifyToken } from '../middlewares/auth.middleware.js';
 
 const router = express.Router();
 
-router.use(verifyToken); // Todas las rutas requieren autenticación
-
+// RF05: Listar tareas
 router.get('/', getTasks);
+
+// RF04: Crear tarea
 router.post('/', createTask);
+
+// RF06 + RF07: Actualizar tarea (título o estado)
 router.patch('/:id', updateTask);
+
+// RF06: Eliminar tarea
 router.delete('/:id', deleteTask);
 
 export default router;

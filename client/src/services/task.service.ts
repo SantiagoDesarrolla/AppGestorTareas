@@ -1,4 +1,4 @@
-import { api } from './api';
+import api from './api';
 
 export const fetchTasks = async () => {
   const response = await api.get('/tasks');
@@ -10,7 +10,7 @@ export const createTask = async (title: string) => {
   return response.data;
 };
 
-export const updateTask = async (id: string, updates: { completed?: boolean }) => {
+export const updateTask = async (id: string, updates: { title?: string; completed?: boolean }) => {
   const response = await api.patch(`/tasks/${id}`, updates);
   return response.data;
 };
